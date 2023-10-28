@@ -6,3 +6,19 @@ GET localhost:8080/api/news
 
 ### 공지사항 전체 저장하기(API -> DB) 테스트
 POST localhost:8080/api/news
+
+### 공지사항 타이틀 업데이트 (DB) 테스트
+PUT localhost:8080/api/news
+
+### 공지사항 저장하기(Request -> DB) 테스트
+POST localhost:8080/api/news
+Content-Type: application/json
+
+{
+   "id" : "25062",
+   "Date" : "2023-12-12",
+   "Link" : "test",
+   "Title" : "test",
+   "Type" : "test",
+}
+
