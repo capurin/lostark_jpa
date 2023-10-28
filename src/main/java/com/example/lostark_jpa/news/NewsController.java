@@ -11,12 +11,20 @@ public class NewsController {
 
     @Autowired
     private NewsService newsService;
-    
+
 
     @GetMapping("/")
     public ResponseEntity hello(){
         return ResponseEntity.ok("hello");
     }
+
+
+    @GetMapping("/news")
+    public ResponseEntity getAllNews(){
+        var response = newsService.findAllNews();
+        return ResponseEntity.ok(response);
+    }
+
 
 
 }

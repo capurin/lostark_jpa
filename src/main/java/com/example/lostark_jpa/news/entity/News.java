@@ -3,11 +3,17 @@ package com.example.lostark_jpa.news.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
+@Getter
+@ToString
+@NoArgsConstructor
 @Entity
 public class News {
     @Id
@@ -28,4 +34,5 @@ public class News {
         this.date = date;
         this.title = title;
     }
+
 }
