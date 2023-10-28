@@ -1,2 +1,8 @@
 ### 공지사항 전체 가져오기(DB) 테스트
 GET localhost:8080/news
+
+### 공지사항 전체 가져오기(API) 테스트
+GET localhost:8080/api/news
+
+### 공지사항 전체 저장하기(API -> DB) 테스트
+POST localhost:8080/api/news
