@@ -1,6 +1,6 @@
-package com.example.lostark_jpa.news.service;
+package com.example.lostark_jpa.infrastucture.news;
 
-import com.example.lostark_jpa.news.entity.News;
+import com.example.lostark_jpa.infrastucture.news.entity.News;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -12,5 +12,8 @@ public interface NewsService {
     Object getNewsApi() throws Exception;
 
     @Transactional
-    List<News> saveNewsByApi() ;
+    List<News> saveNewsByApi();
+
+    @Transactional
+    void changeTitle();
 }

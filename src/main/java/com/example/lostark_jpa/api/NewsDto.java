@@ -1,13 +1,12 @@
-package com.example.lostark_jpa.news.api;
+package com.example.lostark_jpa.api;
 
-import com.example.lostark_jpa.news.entity.News;
+import com.example.lostark_jpa.infrastucture.news.entity.News;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -24,11 +23,12 @@ public class NewsDto {
     private String type;
 
     public News toEntity() {
+
         return News.builder()
-                .id(Long.parseLong(link.substring(link.lastIndexOf('/') + 1)))
                 .date(date)
                 .title(title)
                 .type(type)
+                .link(link)
                 .build();
     }
 

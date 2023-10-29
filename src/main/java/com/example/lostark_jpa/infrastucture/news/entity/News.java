@@ -1,13 +1,12 @@
-package com.example.lostark_jpa.news.entity;
+package com.example.lostark_jpa.infrastucture.news.entity;
 
+import com.example.lostark_jpa.config.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
@@ -15,24 +14,26 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @Entity
-public class News {
+public class News extends BaseEntity {
     @Id
     private Long id;
     private String type;
+
     private LocalDateTime date;
     private String title;
     private String link;
-    @CreatedDate
-    private LocalDateTime createdAt;
-    @LastModifiedDate
-    private LocalDateTime modifiedAt;
 
     @Builder
-    public News(Long id, String type, LocalDateTime date, String title) {
-        this.id = id;
+    public News(String type, LocalDateTime date, String title, String link) {
+        this.id = Long.parseLong(link.substring(link.lastIndexOf('/') + 1));
         this.type = type;
         this.date = date;
         this.title = title;
+        this.link = link;
+    }
+
+    public void changeTitle(String newTitle){
+        title = newTitle;
     }
 
 }

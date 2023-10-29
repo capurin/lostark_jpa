@@ -1,11 +1,10 @@
-package com.example.lostark_jpa.news;
+package com.example.lostark_jpa.interfaces;
 
-import com.example.lostark_jpa.news.service.NewsService;
+import com.example.lostark_jpa.infrastucture.news.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class NewsController {
@@ -33,11 +32,16 @@ public class NewsController {
     }
 
     @PostMapping("/api/news")
-    public ResponseEntity newsApiToDatabase() throws Exception {
+    public ResponseEntity newsApiToDatabase() {
         var response = newsService.saveNewsByApi();
         return ResponseEntity.ok(response);
     }
 
+    @PutMapping("/api/news")
+    public ResponseEntity updateNewsTitle()  {
+        newsService.changeTitle();
+        return ResponseEntity.ok(null);
+    }
 
 
 }

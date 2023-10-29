@@ -1,6 +1,6 @@
-package com.example.lostark_jpa;
+package com.example.lostark_jpa.config;
 
-import com.example.lostark_jpa.news.api.LostArkApiRepositoryService;
+import com.example.lostark_jpa.api.LostArkApiRepositoryService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
